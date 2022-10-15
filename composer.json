@@ -28,7 +28,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "ReviewsServiceProvider"
+                "Constlapkin\\Reviews\\ReviewsServiceProvider"
             ]
         }
     }

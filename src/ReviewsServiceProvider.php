@@ -4,7 +4,6 @@ namespace Constlapkin\Reviews;
 
 use Constlapkin\Reviews\Models\Review;
 use Constlapkin\Reviews\Observers\ReviewObserver;
-use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
@@ -13,7 +12,7 @@ use Illuminate\Support\ServiceProvider;
  *
  * @package Constlapkin\Reviews
  */
-class ReviewsServiceProvider extends ServiceProvider implements DeferrableProvider
+class ReviewsServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap any application services.
