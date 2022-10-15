@@ -1,0 +1,16 @@
+{
+    "name": "constlapkin/reviews",
+    "description": "Reviews for goods",
+    "authors": [
+        {
+            "name": "Constantine Lapkin",
+            "email": "constlapkin@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Constlapkin\\Reviews\\": "src/"
+        }
+    }
+}
