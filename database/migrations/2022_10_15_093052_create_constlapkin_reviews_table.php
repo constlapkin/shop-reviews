@@ -21,7 +21,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->timestamp('published_at')->nullable();
-            $table->foreignId('user_id')->references('id')->on(app(config('auth.providers.users.model')));
+            $table->foreignId('user_id')->references('id')->on(app(config('auth.providers.users.model'))->getTable());
             $table->index('user_id');
             $table->unsignedBigInteger('product_id');
             // references('id')->on(app(config('shop-reviews.relation_model'))->getTable());

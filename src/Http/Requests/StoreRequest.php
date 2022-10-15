@@ -23,7 +23,7 @@ class StoreRequest extends FormRequest
     {
         return [
             'product_id' => ['required', 'integer'],
-            'comment' => ['nullable', 'integer'],
+            'comment' => ['nullable', 'string'],
             'score' => ['required', 'integer'],
         ];
     }

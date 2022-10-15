@@ -28,7 +28,7 @@ class ReviewController extends Controller
      */
     public function index(IndexRequest $request): JsonResponse
     {
-        $reviews = Review::where(function ($q) use ($request) {
+        $query = Review::query()->where(function ($q) use ($request) {
             if (!empty($request->user_id)) {
                 $q->where('user_id', $request->user_id);
             }
@@ -40,10 +40,12 @@ class ReviewController extends Controller
         if (!empty($request->sort_by)) {
             $direction = 'desc';
             if (str_contains($request->sort_by, '-')) {
+                $request->sort_by = ltrim($request->sort_by, '-');
                 $direction = 'asc';
             }
-            $reviews->orderBy($request->sort_by, $direction)->get();
+            $query->orderBy($request->sort_by, $direction);
         }
+        $reviews = $query->get();
         return response()->json($reviews);
     }
 
@@ -65,11 +67,12 @@ class ReviewController extends Controller
     public function store(StoreRequest $request): JsonResponse
     {
         $userId = Auth::id();
-        if (!empty($userId)) {
+        if (empty($userId)) {
             return response()->json(null, 403);
         }
-        $request->user_id = $userId;
-        $review = Review::create($request);
+        $attr = $request->toArray();
+        $attr['user_id'] = $userId;
+        $review = Review::create($attr);
         return response()->json($review, 201);
     }
 
@@ -81,7 +84,12 @@ class ReviewController extends Controller
      */
     public function update(UpdateRequest $request, Review $review): JsonResponse
     {
-        $review = $review->update([$request]);
+        $userId = Auth::id();
+        if (empty($userId)) {
+            return response()->json(null, 403);
+        }
+        $attr = $request->toArray();
+        $review = $review->update($request->toArray());
         return response()->json($review);
     }
 
