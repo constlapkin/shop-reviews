@@ -24,24 +24,12 @@
             "Constlapkin\\Reviews\\Database\\Factories\\": "database/factories"
         }
     },
-    "autoload-dev": {
-        "psr-4": {
-            "Constlapkin\\Reviews\\Tests\\": "tests"
-        }
-    },
     "minimum-stability": "dev",
-    "require-dev": {
-        "orchestra/testbench": "^7.0"
-    },
     "extra": {
         "laravel": {
             "providers": [
-                "Constlapkin\\Reviews\\ReviewsPackageServiceProvider"
+                "ReviewsServiceProvider"
             ]
         }
-    },
-    "scripts": {
-        "test": "vendor/bin/phpunit",
-        "test-f": "vendor/bin/phpunit --filter"
     }
 }

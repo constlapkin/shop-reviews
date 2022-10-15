@@ -9,11 +9,11 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
 /**
- * Class ReviewsPackageServiceProvider
+ * Class ReviewsServiceProvider
  *
  * @package Constlapkin\Reviews
  */
-class ReviewsPackageServiceProvider extends ServiceProvider implements DeferrableProvider
+class ReviewsServiceProvider extends ServiceProvider implements DeferrableProvider
 {
     /**
      * Bootstrap any application services.
