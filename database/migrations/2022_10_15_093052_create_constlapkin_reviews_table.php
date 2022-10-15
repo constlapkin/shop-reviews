@@ -21,13 +21,12 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->timestamp('published_at')->nullable();
-            $table->unsignedBigInteger('user_id');
-            // references('id')->on(app(config('shop-reviews.user_model'))->getTable());
+            $table->foreignId('user_id')->references('id')->on(app(config('auth.providers.users.model')));
             $table->index('user_id');
             $table->unsignedBigInteger('product_id');
             // references('id')->on(app(config('shop-reviews.relation_model'))->getTable());
             $table->index('product_id');
-            $table->text('comment');
+            $table->text('comment')->nullable();
             $table->tinyInteger('score');
         });
     }

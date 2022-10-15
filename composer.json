@@ -1,16 +1,47 @@
 {
     "name": "constlapkin/reviews",
     "description": "Reviews for goods",
+    "keywords": [
+        "reviews",
+        "laravel",
+        "constlapkin"
+    ],
+    "homepage": "https://github.com/constlapkin/reviews",
+    "license": "MIT",
     "authors": [
         {
             "name": "Constantine Lapkin",
-            "email": "constlapkin@gmail.com"
+            "email": "constlapkin@gmail.com",
+            "role": "Developer"
         }
     ],
-    "require": {},
+    "require": {
+        "php": "^8.1"
+    },
     "autoload": {
         "psr-4": {
-            "Constlapkin\\Reviews\\": "src/"
+            "Constlapkin\\Reviews\\": "src/",
+            "Constlapkin\\Reviews\\Database\\Factories\\": "database/factories"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Constlapkin\\Reviews\\Tests\\": "tests"
+        }
+    },
+    "minimum-stability": "dev",
+    "require-dev": {
+        "orchestra/testbench": "^7.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Constlapkin\\Reviews\\ReviewsPackageServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-f": "vendor/bin/phpunit --filter"
     }
 }

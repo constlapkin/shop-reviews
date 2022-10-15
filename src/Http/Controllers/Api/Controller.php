@@ -7,7 +7,9 @@
 
 namespace Constlapkin\Reviews\Http\Controllers\Api;
 
-class Controller
+use Illuminate\Routing\Controller as BaseController;
+
+class Controller extends BaseController
 {
 
 }
